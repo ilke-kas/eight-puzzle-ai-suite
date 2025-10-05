@@ -1,0 +1,395 @@
+>>># CASE 1
+>>># Very basic case that both can solve it easily in 5 nodes
+>>># set seed of random generator first then scramble state
+>>>setSeed 42
+>>>scrambleState 2
+move right
+ 1   2
+ 3 4 5
+ 6 7 8
+
+move right
+ 1 2  
+ 3 4 5
+ 6 7 8
+
+>>>
+>>># solve for DFS
+>>>solve DFS
+Nodes created during search: 5
+Solution length: 2
+Move sequence: 
+move left
+move left
+>>>
+>>># solve for BFS
+>>>solve BFS
+Nodes created during search: 4
+Solution length: 2
+Move sequence: 
+move left
+move left
+>>># ----------------------
+>>>
+>>># CASE 2
+>>># Very basic case that if the given state is the goal state already show the output
+>>># set seed of random generator first then scramble state
+>>>setSeed 56
+>>>scrambleState 4
+move right
+ 1   2
+ 3 4 5
+ 6 7 8
+
+move right
+ 1 2  
+ 3 4 5
+ 6 7 8
+
+move left
+ 1   2
+ 3 4 5
+ 6 7 8
+
+move left
+   1 2
+ 3 4 5
+ 6 7 8
+
+>>>
+>>># solve for DFS
+>>>solve DFS
+Nodes created during search: 1
+Solution length: 0
+Move sequence: 
+>>>
+>>># solve for BFS
+>>>solve BFS
+Nodes created during search: 1
+Solution length: 0
+Move sequence: 
+>>># ----------------------
+>>>
+>>># CASE 3
+>>># DFS reaches node limit 1000 while BFS finds solution
+>>># set seed of random generator first then scramble state
+>>>setSeed 12054
+>>>scrambleState 4
+move right
+ 1   2
+ 3 4 5
+ 6 7 8
+
+move right
+ 1 2  
+ 3 4 5
+ 6 7 8
+
+move down
+ 1 2 5
+ 3 4  
+ 6 7 8
+
+move down
+ 1 2 5
+ 3 4 8
+ 6 7  
+
+>>>
+>>># solve for DFS
+>>>solve DFS
+Error maxnodes limit (1000) reached
+>>>
+>>># solve for BFS
+>>>solve BFS
+Nodes created during search: 30
+Solution length: 4
+Move sequence: 
+move up
+move up
+move left
+move left
+>>>
+>>>
+>>># ----------------------
+>>>
+>>># CASE 4
+>>># BFS reaches node limit given 20 normally it can solve it 29 nodes
+>>># set seed of random generator first then scramble state
+>>>setSeed 4263
+>>>scrambleState 6
+move right
+ 1   2
+ 3 4 5
+ 6 7 8
+
+move down
+ 1 4 2
+ 3   5
+ 6 7 8
+
+move left
+ 1 4 2
+   3 5
+ 6 7 8
+
+move up
+   4 2
+ 1 3 5
+ 6 7 8
+
+move down
+ 1 4 2
+   3 5
+ 6 7 8
+
+move down
+ 1 4 2
+ 6 3 5
+   7 8
+
+>>>
+>>># solve for BFS, normally it can solve with node 26 nodes but limit it to 20
+>>>solve BFS maxnodes=20
+Error maxnodes limit (20) reached
+>>>
+>>># ----------------------
+>>>
+>>># CASE 5
+>>># DFS reaches node limit given 4 , normally it can solve with 5 nodes
+>>># set seed of random generator first then scramble state
+>>>setSeed 42
+>>>scrambleState 2
+move right
+ 1   2
+ 3 4 5
+ 6 7 8
+
+move right
+ 1 2  
+ 3 4 5
+ 6 7 8
+
+>>>
+>>># solve for DFS, normally it can solve with node 5 nodes but limit it to 4
+>>>solve DFS maxnodes=4
+Error maxnodes limit (4) reached
+>>>
+>>># ----------------------
+>>>
+>>># CASE 6
+>>># DFS solve inefficiently while BFS solve easily
+>>># set seed of random generator first then scramble state
+>>>setSeed 909
+>>>scrambleState 3
+move down
+ 3 1 2
+   4 5
+ 6 7 8
+
+move right
+ 3 1 2
+ 4   5
+ 6 7 8
+
+move left
+ 3 1 2
+   4 5
+ 6 7 8
+
+>>>
+>>># solve for DFS
+>>>solve DFS
+Nodes created during search: 56
+Solution length: 29
+Move sequence: 
+move right
+move right
+move up
+move left
+move left
+move down
+move right
+move right
+move up
+move left
+move left
+move down
+move right
+move right
+move up
+move left
+move left
+move down
+move right
+move right
+move up
+move left
+move left
+move down
+move right
+move right
+move up
+move left
+move left
+>>>
+>>># solve for BFS
+>>>solve BFS
+Nodes created during search: 3
+Solution length: 1
+Move sequence: 
+move up
+>>>
+>>># ----------------------
+>>>
+>>># CASE 7
+>>># DFS could not solve even maxnode limit is 5000 but BFS could solve even maxnode limit is 20
+>>># set seed of random generator first then scramble state
+>>>setSeed 9092
+>>>scrambleState 3
+move right
+ 1   2
+ 3 4 5
+ 6 7 8
+
+move down
+ 1 4 2
+ 3   5
+ 6 7 8
+
+move down
+ 1 4 2
+ 3 7 5
+ 6   8
+
+>>>
+>>># solve for DFS maxnodes=5000
+>>>solve DFS maxnodes=5000
+Error maxnodes limit (5000) reached
+>>>
+>>># solve for BFS
+>>>solve BFS maxnodes=20
+Nodes created during search: 18
+Solution length: 3
+Move sequence: 
+move up
+move up
+move left
+>>>
+>>># ----------------------
+>>># CASE 8
+>>># BFS checks children first, so creates less node than DFS 
+>>># set seed of random generator first then scramble state
+>>>setState 0 1 2 3 4 5 6 7 8
+>>>printState
+   1 2
+ 3 4 5
+ 6 7 8
+
+>>>move right
+>>>printState
+ 1   2
+ 3 4 5
+ 6 7 8
+
+>>>
+>>># solve for DFS 
+>>>solve DFS 
+Nodes created during search: 4
+Solution length: 1
+Move sequence: 
+move left
+>>>
+>>># solve for BFS
+>>>solve BFS 
+Nodes created during search: 2
+Solution length: 1
+Move sequence: 
+move left
+>>>
+>>># ----------------------
+>>># CASE 9
+>>># DFS first go deeper with move left, move right, then move up, then move down
+>>># So it requires many node before go deep for two move up actions
+>>># set seed of random generator first then scramble state
+>>>setState 0 1 2 3 4 5 6 7 8
+>>>printState
+   1 2
+ 3 4 5
+ 6 7 8
+
+>>>move down
+>>>printState
+ 3 1 2
+   4 5
+ 6 7 8
+
+>>>move down
+>>>printState
+ 3 1 2
+ 6 4 5
+   7 8
+
+>>>
+>>># solve for DFS 
+>>>solve DFS 
+Error maxnodes limit (1000) reached
+>>>
+>>># solve for BFS
+>>>solve BFS 
+Nodes created during search: 7
+Solution length: 2
+Move sequence: 
+move up
+move up
+>>>
+>>># ----------------------
+>>># CASE 10
+>>># Move blank tile back to 0, blank tile make loop (not states)
+>>># set seed of random generator first then scramble state
+>>>setState 0 1 2 3 4 5 6 7 8
+>>>printState
+   1 2
+ 3 4 5
+ 6 7 8
+
+>>>move right
+>>>printState
+ 1   2
+ 3 4 5
+ 6 7 8
+
+>>>move down
+>>>printState
+ 1 4 2
+ 3   5
+ 6 7 8
+
+>>>move left
+>>>printState
+ 1 4 2
+   3 5
+ 6 7 8
+
+>>>move up
+>>>printState
+   4 2
+ 1 3 5
+ 6 7 8
+
+>>>
+>>>
+>>># solve for DFS 
+>>>solve DFS maxnodes=10000
+Error maxnodes limit (10000) reached
+>>>
+>>># solve for BFS
+>>>solve BFS 
+Nodes created during search: 26
+Solution length: 4
+Move sequence: 
+move down
+move right
+move up
+move left
+>>>

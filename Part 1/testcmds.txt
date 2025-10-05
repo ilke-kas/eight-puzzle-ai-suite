@@ -1,0 +1,61 @@
+# Without the initialization of the state, the other functions should give initialization error
+printState
+move up
+move left
+# ----------------------
+# Initialize the state
+setState 7 2 4 5 0 6 8 3 1
+printState
+move up
+printState
+move left
+printState
+move down
+printState
+move right
+printState
+# ----------------------
+# Scramble State 0 means it will be inital state (goal state)
+scrambleState 0
+printState
+# ----------------------
+# Scramble State and comment setState. When state is printed it should not be in goal state.
+scrambleState 6
+// setState 0 1 2 3 4 5 6 7 8 
+printState
+# ----------------------
+# Error will be displayed - setState
+setState 1 2 3 4 5 7 8
+setState 0 1 2 3 4 5 6 7 11
+setState
+setState 1 1 1 1 1 1 1 1 1
+# ----------------------
+# Error will be displayed - move
+setState 0 1 2 3 4 5 6 7 8
+printState
+move up
+move left
+printState
+# ----------------------
+setState 8 1 2 3 4 5 6 7 0
+printState
+move down
+move right
+printState
+# ----------------------
+setState 2 1 0 3 4 5 6 7 8
+printState
+move up
+move right
+printState
+# ----------------------
+setState 6 1 2 3 4 5 0 7 8
+printState
+move down
+move right
+printState
+# ----------------------
+# Error will be displayed- scrambleState
+scrambleState
+
+

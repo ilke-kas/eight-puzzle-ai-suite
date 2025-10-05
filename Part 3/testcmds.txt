@@ -1,0 +1,171 @@
+# TEST FOR HEURISTICS
+#---------------------------
+# CASE 1
+setSeed 42
+scrambleState 2
+
+# get heuristic 1 value
+heuristic h1
+
+# get heuristic 2 value
+heuristic h2
+
+# get heuristic 3 value which is not exist since it should show error
+heuristic h3
+# ----------------------
+# CASE 2
+# Very basic case that if the given state is the goal state already show the output
+# set seed of random generator first then scramble state
+setSeed 56
+scrambleState 4
+
+# get heuristic 1 value
+heuristic h1
+
+# get heuristic 2 value
+heuristic h2
+# ----------------------
+# CASE 3
+# Scramble State Too Much 
+setSeed 56
+scrambleState 20
+
+# get heuristic 1 value
+heuristic h1
+
+# get heuristic 2 value
+heuristic h2
+#---------------------------
+# TESTS FOR A*
+#---------------------------
+# CASE 1
+setSeed 56
+scrambleState 4
+printState
+
+# solve for A* with heuristic 1
+solve A* h1
+
+# solve for A* with heuristic 2
+solve A* h2
+#---------------------------
+# CASE 2
+setSeed 42
+scrambleState 2
+
+# solve for A* with heuristic 1
+solve A* h1
+
+# solve for A* with heuristic 2
+solve A* h2
+#---------------------------
+# CASE 3
+setSeed 909
+scrambleState 8
+
+# solve for A* with heuristic 1
+solve A* h1
+
+# solve for A* with heuristic 2
+solve A* h2
+#---------------------------
+# TEST CASE 4 (Maximally Scrambled)
+setState 8 7 6 5 4 3 2 1 0
+printState
+
+# solve for A* with heuristic 1
+solve A* h1
+
+# solve for A* with heuristic 2
+solve A* h2
+#---------------------------
+# TEST CASE 5(Maximally Scrambled increased max_node example), h2 can solve it while h1 cant, 
+# duplicated states  are detected during repeated state checking
+setState 8 7 6 5 4 3 2 1 0
+printState
+
+# solve for A* with heuristic 1
+solve A* h1 maxnodes=2000
+
+# solve for A* with heuristic 2
+solve A* h2 maxnodes=2000
+#---------------------------
+# TEST CASE 6
+setState 0 1 2 3 4 5 6 7 8
+printState
+
+move down
+printState
+
+move right
+printState
+
+move up
+printState
+
+move left
+printState
+
+# solve for A* with heuristic 1
+solve A* h1 
+
+# solve for A* with heuristic 2
+solve A* h2 
+#---------------------------
+# TEST CASE 7
+setState 0 1 2 3 4 5 6 7 8
+printState
+
+move right
+printState
+
+move down
+printState
+
+# solve for A* with heuristic 1
+solve A* h1 
+
+# solve for A* with heuristic 2
+solve A* h2 
+#---------------------------
+# TEST CASE 8
+setState 0 1 2 3 4 5 6 7 8
+printState
+
+move down
+printState
+
+move down
+printState
+
+move right
+printState
+
+move up
+printState
+
+move up
+printState
+
+move left
+printState
+
+
+# solve for A* with heuristic 1
+solve A* h1 
+
+# solve for A* with heuristic 2
+solve A* h2 
+
+#---------------------------
+# TEST CASE 9
+setState 2 3 1 4 0 5 6 7 8
+printState
+
+# solve for A* with heuristic 1
+solve A* h1 maxnodes=1000
+
+# solve for A* with heuristic 2
+solve A* h2 maxnodes=1000
+
+

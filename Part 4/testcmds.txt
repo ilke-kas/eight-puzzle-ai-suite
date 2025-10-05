@@ -1,0 +1,21 @@
+# Exercise 4: Test Effective Branching Factor
+# CASE 1
+# When branching factor of uniform tree is 2 and height is 4 
+testEBF 2 4
+#--------------------
+# CASE 2
+# When branching factor of uniform tree is 3 and height is 5
+testEBF 3 5
+#--------------------
+# CASE 3
+# When branching factor of uniform tree is 5 and height is 5
+testEBF 5 5
+#--------------------
+# CASE 4
+# When branching factor of uniform tree is 5 and height is 10
+testEBF 5 10
+#--------------------
+# CASE 5
+# Compare Search Costs
+#createStatesSearchCosts 6 20 2
+compareSearchCosts

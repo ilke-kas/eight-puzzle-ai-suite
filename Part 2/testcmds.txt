@@ -1,0 +1,144 @@
+# CASE 1
+# Very basic case that both can solve it easily in 5 nodes
+# set seed of random generator first then scramble state
+setSeed 42
+scrambleState 2
+
+# solve for DFS
+solve DFS
+
+# solve for BFS
+solve BFS
+# ----------------------
+
+# CASE 2
+# Very basic case that if the given state is the goal state already show the output
+# set seed of random generator first then scramble state
+setSeed 56
+scrambleState 4
+
+# solve for DFS
+solve DFS
+
+# solve for BFS
+solve BFS
+# ----------------------
+
+# CASE 3
+# DFS reaches node limit 1000 while BFS finds solution
+# set seed of random generator first then scramble state
+setSeed 12054
+scrambleState 4
+
+# solve for DFS
+solve DFS
+
+# solve for BFS
+solve BFS
+
+
+# ----------------------
+
+# CASE 4
+# BFS reaches node limit given 20 normally it can solve it 29 nodes
+# set seed of random generator first then scramble state
+setSeed 4263
+scrambleState 6
+
+# solve for BFS, normally it can solve with node 26 nodes but limit it to 20
+solve BFS maxnodes=20
+
+# ----------------------
+
+# CASE 5
+# DFS reaches node limit given 4 , normally it can solve with 5 nodes
+# set seed of random generator first then scramble state
+setSeed 42
+scrambleState 2
+
+# solve for DFS, normally it can solve with node 5 nodes but limit it to 4
+solve DFS maxnodes=4
+
+# ----------------------
+
+# CASE 6
+# DFS solve inefficiently while BFS solve easily
+# set seed of random generator first then scramble state
+setSeed 909
+scrambleState 3
+
+# solve for DFS
+solve DFS
+
+# solve for BFS
+solve BFS
+
+# ----------------------
+
+# CASE 7
+# DFS could not solve even maxnode limit is 5000 but BFS could solve even maxnode limit is 20
+# set seed of random generator first then scramble state
+setSeed 9092
+scrambleState 3
+
+# solve for DFS maxnodes=5000
+solve DFS maxnodes=5000
+
+# solve for BFS
+solve BFS maxnodes=20
+
+# ----------------------
+# CASE 8
+# BFS checks children first, so creates less node than DFS 
+# set seed of random generator first then scramble state
+setState 0 1 2 3 4 5 6 7 8
+printState
+move right
+printState
+
+# solve for DFS 
+solve DFS 
+
+# solve for BFS
+solve BFS 
+
+# ----------------------
+# CASE 9
+# DFS first go deeper with move left, move right, then move up, then move down
+# So it requires many node before go deep for two move up actions
+# set seed of random generator first then scramble state
+setState 0 1 2 3 4 5 6 7 8
+printState
+move down
+printState
+move down
+printState
+
+# solve for DFS 
+solve DFS 
+
+# solve for BFS
+solve BFS 
+
+# ----------------------
+# CASE 10
+# Move blank tile back to 0, blank tile make loop (not states)
+# set seed of random generator first then scramble state
+setState 0 1 2 3 4 5 6 7 8
+printState
+move right
+printState
+move down
+printState
+move left
+printState
+move up
+printState
+
+
+# solve for DFS 
+solve DFS maxnodes=10000
+
+# solve for BFS
+solve BFS 
+
